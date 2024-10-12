@@ -4,43 +4,59 @@ import asyncio
 from asyncio import Task
 
 async def follow(self: BaseBot, user: User, message: str) -> None:
-    async def following_loop(self: BaseBot, user: User, message: str) -> None:
-        if message.startswith("/following_loop"):
-            await self.highrise.chat("Comando inválido, use  /follow")
-            return
+    # Extract user ID from the message (format: !follow@username)
+    if not message.startswith("!follow@"):
+        await self.highrise.chat("Invalid command, use !follow@username")
+        return
+
+    # Extract username after !follow@
+    try:
+        target_username = message.split("@")[1].strip()
+    except IndexError:
+        await self.highrise.chat("Please use the correct format: !follow@username")
+        return
+
+    async def following_loop(self: BaseBot, target_username: str) -> None:
         while True:
-            #gets the user position
+            # Get the user position
             room_users = (await self.highrise.get_room_users()).content
+            user_position = None
             for room_user, position in room_users:
-                if room_user.id == user.id:
+                if room_user.username == target_username:
                     user_position = position
                     break
-            print(user_position)
-            if type(user_position) != AnchorPosition:
+
+            if user_position is None:
+                await self.highrise.chat(f"User with username {target_username} not found in the room.")
+                return
+
+            # Move towards the user if their position is an AnchorPosition
+            if isinstance(user_position, AnchorPosition):
                 await self.highrise.walk_to(Position(user_position.x + 1, user_position.y, user_position.z))
             await asyncio.sleep(0.5)
+
     taskgroup = self.highrise.tg
     task_list = list(taskgroup._tasks)
     for task in task_list:
         if task.get_name() == "following_loop":
-            await self.highrise.chat("ok ")
+            await self.highrise.chat("I am already following someone. Stop first with /stop.")
             return
-    #checks if this function is already in the Highrise class tg (task group).
-    taskgroup.create_task(coro=following_loop(self, user, message))
-    task_list : list[Task] = list(taskgroup._tasks)
-    # Sets the name of the task who has the following_loop function to "following_loop"
+
+    # Create the follow task
+    taskgroup.create_task(coro=following_loop(self, target_username))
+    task_list: list[Task] = list(taskgroup._tasks)
     for task in task_list:
         if task.get_coro().__name__ == "following_loop":
             task.set_name("following_loop")
-    await self.highrise.chat(f"coming😍  {user.username} 🚶‍♂️")
-    
+
+    await self.highrise.chat(f"Following the user with username {target_username} 🚶‍♂️")
+
 async def stop(self: BaseBot, user: User, message: str) -> None:
     taskgroup = self.highrise.tg
     task_list = list(taskgroup._tasks)
     for task in task_list:
         if task.get_name() == "following_loop":
             task.cancel()
-            await self.highrise.chat(f"ok🥲  {user.username}")
+            await self.highrise.chat(f"Stopped following 🛑")
             return
-    await self.highrise.chat("ok ")
-    return
+    await self.highrise.chat("I am not following anyone at the moment.")
