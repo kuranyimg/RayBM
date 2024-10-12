@@ -4,6 +4,7 @@ import importlib.util
 from highrise import*
 from highrise import BaseBot,Position
 from highrise.models import SessionMetadata
+from highrise import Highrise, GetMessagesRequest
 
 casa = ["I Marry You 💍","Of course I do 💍❤️","I don't want to 💍💔","Of course I don't 💍💔","I Love You Of course I marry you 💍"]
 
@@ -1269,7 +1270,29 @@ class Bot(BaseBot):
                     await function(self, user, message)
         
         # If no matching function is found
-        return              
+        return        
+
+    async def on_message(self, user_id: str, conversation_id: str, is_new_conversation: bool) -> None:
+        try:
+            # Log the incoming message details
+            print(f"New message from {user_id} in {conversation_id}! Is new conversation: {is_new_conversation}")
+
+            # Fetch the latest messages in the private conversation
+            response = await self.highrise.get_messages(conversation_id)
+            
+            # Ensure that the response contains valid messages
+            if isinstance(response, GetMessagesRequest.GetMessagesResponse) and response.messages:
+                # Get the most recent message content
+                message = response.messages[0].content
+                print(f"Received message: {message}")
+                
+                # Broadcast the message to the public chat room
+                await self.highrise.chat(message)
+                print(f"Broadcasted message: {message}")
+            
+        except Exception as e:
+            # Log any errors for debugging
+            print(f"Error handling private message: {e}")
 
            
     async def on_whisper(self, user: User, message: str) -> None:
