@@ -35,7 +35,7 @@ class Bot(BaseBot):
         # Send welcome whispers to the user
         await self.highrise.send_whisper(user.id, f"❤️Welcome [{user.username}]! Use: [!emote list] or [1-97] for dances & emotes.")
         await self.highrise.send_whisper(user.id, f"❤️Use: [/help] for more information.")
-        await self.highrise.send_whisper(user.id, f"❤Type -4 to go up 🤍.")
+        await self.highrise.send_whisper(user.id, f"❤Type F4 or floor number to teleport 🤍.")
 
         # Send emotes
         await self.highrise.send_emote("dance-hipshake")
@@ -47,7 +47,7 @@ class Bot(BaseBot):
     async def on_chat(self, user: User, message: str) -> None:
         print(f"{user.username}: {message}")  
 
-        if message.lower().startswith("-tipall ") and user.username == "RayBM":
+        if message.lower().startswith("-tipall ") user.username == "RayBM" or user.username == "sh1n1gam1699":
               parts = message.split(" ")
               if len(parts) != 2:
                   await self.highrise.send_message(user.id, "Invalid command")
@@ -245,16 +245,16 @@ class Bot(BaseBot):
         if message.startswith("!emoteall"):
           await self.highrise.send_whisper(user.id,"Zombie All , Celebrate All , Kiss All , Bow All , Snowangel All , Confused All , Charging All , Wei All , Cursing All , Greedy All , Russian All , Shop All , Model All , Ren All , Tiktok4 All , Snake All , Uwu All")
 
-        if        message.startswith("-floor1") or message.startswith("!floor1") or message.startswith("-floor 1") or message.startswith("Floor 1") or message.startswith("Floor1") or message.startswith("/floor1") or    message.startswith("floor1") or message.startswith("-1") or                                 message.startswith("floor 1") or message.startswith("!floor 1"):
+        if        message.startswith("-floor1") or message.startswith("!floor1") or message.startswith("-floor 1") or message.startswith("Floor 1") or message.startswith("Floor1") or message.startswith("/floor1") or    message.startswith("floor1") or message.startswith("-1") or    message.startswith("floor1") or message.startswith("f1") or message.startswith("f 1") or message.startswith("floor1") or message.startswith("F1")  or   message.startswith("floor 1") or message.startswith("!floor 1"):
           await self.highrise.teleport(user.id, Position(3.5 , 0.0 , 7.0 ))
 
-        if        message.startswith("-floor3") or message.startswith("!floor3") or message.startswith("-floor 3") or message.startswith("Floor 3") or message.startswith("Floor3") or message.startswith("/floor3") or    message.startswith("floor3") or message.startswith("-3") or                                 message.startswith("floor 3") or message.startswith("!floor 3"):
+        if        message.startswith("-floor3") or message.startswith("!floor3") or message.startswith("-floor 3") or message.startswith("Floor 3") or message.startswith("Floor3") or message.startswith("/floor3") or    message.startswith("floor3") or message.startswith("-3") or    message.startswith("floor3") or message.startswith("f2") or message.startswith("f 2") or message.startswith("floor3") or message.startswith("F2")  or   message.startswith("floor 3") or message.startswith("!floor 3"):
           await self.highrise.teleport(user.id, Position(15.0 , 15.2 , 9.5))
 
-        if        message.startswith("-floor4") or message.startswith("!floor4") or message.startswith("-floor 4") or message.startswith("Floor 4") or message.startswith("Floor4") or message.startswith("/floor4") or    message.startswith("floor4") or message.startswith("-4") or                                 message.startswith("floor 4") or message.startswith("!floor 4"):
+        if        message.startswith("-floor4") or message.startswith("!floor4") or message.startswith("-floor 4") or message.startswith("Floor 4") or message.startswith("Floor4") or message.startswith("/floor4") or    message.startswith("floor4") or message.startswith("-4") or    message.startswith("floor4") or message.startswith("f4") or message.startswith("f 4") or message.startswith("floor4") or message.startswith("F4")  or   message.startswith("floor 4") or message.startswith("!floor 4"):
           await self.highrise.teleport(user.id, Position(16.0 , 20.0 , 5.5))
             
-        if        message.startswith("-floor2") or message.startswith("!floor2") or message.startswith("-floor 2") or message.startswith("Floor 2") or message.startswith("Floor2") or message.startswith("/floor2") or    message.startswith("floor2") or message.startswith("-2") or                                 message.startswith("floor 2") or message.startswith("!floor 2"):
+        if        message.startswith("-floor2") or message.startswith("!floor2") or message.startswith("-floor 2") or message.startswith("Floor 2") or message.startswith("Floor2") or message.startswith("/floor2") or    message.startswith("floor2") or message.startswith("-2") or    message.startswith("floor2") or message.startswith("f3") or message.startswith("f 3") or message.startswith("floor2") or message.startswith("F3")  or   message.startswith("floor 2") or message.startswith("!floor 2"):
           await self.highrise.teleport(user.id, Position(10.5 , 8.0 , 3.5))
             
         if message.startswith("!emoteall"):
@@ -1130,12 +1130,12 @@ class Bot(BaseBot):
           await                     self.teleport_to_user(user, target_username)
 
         if                            message.startswith("Summon") or         message.startswith("Summom") or         message.startswith("!summom") or        message.startswith("/summom") or        message.startswith("/summon") or  message.startswith("!summon"):
-          if user.username == "FallonXOXO" or user.username == "Its.Melly.Moo.XoXo" or user.username == "iced_yu" or user.username == "sh1n1gam1699" or user.username == "Abbie_38" or user.username == "hidinurbasement" or user.username == "@emping" or user.username == "BabygirlFae" or user.username == "RayBM":
+          if user.username == "FallonXOXO" or user.username == "Its.Melly.Moo.XoXo" or user.username == "Shaun_Knox" or user.username == "sh1n1gam1699" or user.username == "Dreamy._.KY" or user.username == "hidinurbasement" or user.username == "@emping" or user.username == "_irii_" or user.username == "RayBM":
            target_username = message.split("@")[-1].strip()
            await self.teleport_user_next_to(target_username, user)
 
         if              message.startswith("Carteira") or  message.startswith("Wallet") or    message.startswith("wallet") or       message.startswith("carteira"):
-          if user.username == "FallonXOXO" or user.username == "RayBM" or user.username == "iced_yu":
+          if user.username == "FallonXOXO" or user.username == "RayBM" or user.username == "sh1n1gam1699":
             wallet = (await self.highrise.get_wallet()).content
             await self.highrise.send_whisper(user.id,f"AMOUNT  : {wallet[0].amount} {wallet[0].type}")
             await self.highrise.send_emote("dance-tiktok14")
@@ -1306,12 +1306,12 @@ class Bot(BaseBot):
             await self.command_handler(user, message)
 
         if                            message.startswith("Summon") or         message.startswith("Summom") or         message.startswith("!summom") or        message.startswith("/summom") or        message.startswith("/summon") or  message.startswith("!summon"):
-          if user.username == "FallonXOXO" or user.username == "iced_yu" or user.username == "@Its.Melly.Moo.XoXo" or user.username == "RayBM":
+          if user.username == "FallonXOXO" or user.username == "Shaun_Knox" or user.username == "@Its.Melly.Moo.XoXo" or user.username == "@RayBM" or user.username == "Dreamy._.KY":
            target_username = message.split("@")[-1].strip()
            await self.teleport_user_next_to(target_username, user)
             
         if              message.startswith("Carteira") or  message.startswith("Wallet") or    message.startswith("wallet") or       message.startswith("carteira"):
-          if user.username == "FallonXOXO" or user.username == "RayBM":
+          if user.username == "FallonXOXO" or user.username == "sh1n1gam1699" or user.username == "RayBM":
             wallet = (await self.highrise.get_wallet()).content
             await self.highrise.send_whisper(user.id,f"AMOUNT : {wallet[0].amount} {wallet[0].type}")
             await self.highrise.send_emote("emote-blowkisses")
