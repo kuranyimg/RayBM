@@ -35,7 +35,7 @@ class Bot(BaseBot):
         # Send welcome whispers to the user
         await self.highrise.send_whisper(user.id, f"❤️Welcome [{user.username}]! Use: [!emote list] or [1-97] for dances & emotes.")
         await self.highrise.send_whisper(user.id, f"❤️Use: [/help] for more information.")
-        await self.highrise.send_whisper(user.id, f"❤Type F4 or floor number to teleport 🤍.")
+        await self.highrise.send_whisper(user.id, f"❤Type F3 F2 and F1 to teleport between the floor 🤍.")
 
         # Send emotes
         await self.highrise.send_emote("dance-hipshake")
@@ -296,7 +296,7 @@ class Bot(BaseBot):
             await self.highrise.send_emote("emote-robot")
             await self.highrise.send_whisper(user.id,f"emotes available from number 1 to 97")
 
-        if        message.startswith("Help") or      message.startswith("/help") or      message.startswith("!help") or message.startswith("help"):
+        if        message.startswith("-Help") or      message.startswith("/help") or      message.startswith("!help") or message.startswith("-help"):
             await self.highrise.chat(f"/lista | /pessoas | /emotes | | /marry me? | /play /fish /userinfo @ | !emoteall | !tele @ | !summon @ | !kick @ | !tele z,y,x | !tele @ z,y,x | ")
             await self.highrise.chat(f"[Emote] All | !emote all [Emote]")        
             await self.highrise.chat(f"{user.username} all activation codes must be used >> ! or/")
