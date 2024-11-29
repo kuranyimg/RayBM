@@ -252,7 +252,7 @@ class Bot(BaseBot):
           await self.highrise.teleport(user.id, Position(16.0 , 20.0 , 5.5))
             
         if        message.startswith("-floor2") or message.startswith("!floor2") or message.startswith("-floor 2") or message.startswith("Floor 2") or message.startswith("Floor2") or message.startswith("/floor2") or    message.startswith("floor2") or message.startswith("-2") or    message.startswith("floor2") or message.startswith("f2") or message.startswith("f 2") or message.startswith("floor2") or message.startswith("F2")  or   message.startswith("floor 2") or message.startswith("!floor 2"):
-          await self.highrise.teleport(user.id, Position(0.5 , 3.0 , 11.5))
+          await self.highrise.teleport(user.id, Position(8.0 , 14.0 , 7.5))
             
         if message.startswith("!emoteall"):
           await self.highrise.send_whisper(user.id,"Skating All , Time All , Gottago All  , Scritchy All , Bitnervous All , Jingle All , Curtsy All , Hot All , Hyped All ,Sleigh All , Surprise All, Repose All , Kawaii All , Touch All , Gift All , Pushit All , Tiktok All , Smooch All , Launch All")
