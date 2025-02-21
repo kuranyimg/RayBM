@@ -20,10 +20,9 @@ class WebServer():
     t = Thread(target=self.run)
     t.start()
 
-
 class RunBot():
-  room_id = "67b50862c49858d779e9760a"
-  bot_token = "2f79924100906521162a800ca044b6b118c71440997058eae0d0228533e3c2c7"
+  room_id = os.getenv("ROOM_ID")
+  bot_token = os.getenv("HIGHRISE_API_KEY")
   bot_file = "main"
   bot_class = "Bot"
 
