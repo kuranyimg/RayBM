@@ -340,11 +340,11 @@ class Bot(BaseBot):
         if        message.startswith("/attentive") or      message.startswith("!attentive") or      message.startswith("Attentive") or message.startswith("Att") or message.startswith("att") or  message.startswith("attentive") or message.startswith("106"):
             await self.highrise.send_emote("idle_layingdown",user.id)
                  
+        if        message.startswith("/rest") or      message.startswith("!rest") or      message.startswith("Rest") or message.startswith("rest") or message.startswith("resting") or  message.startswith("rested") or message.startswith("105"):
+            await self.highrise.send_emote("sit-idle-cute",user.id)
+                 
         if        message.startswith("/ghost") or      message.startswith("!ghost") or      message.startswith("ghost") or   message.startswith("Ghost") or message.startswith("107"):
             await self.highrise.send_emote("emote-ghost-idle",user.id)
-
-        if        message.startswith("/rest") or      message.startswith("!Rest") or      message.startswith("Rest") or   message.startswith("rest") or message.startswith("105"):
-            await self.highrise.send_emote("sit-idle-cute",user.id)
 
         if        message.startswith("/levitate") or      message.startswith("!levitate") or      message.startswith("Levitate") or message.startswith("Levi") or message.startswith("lev") or message.startswith("Lev") or  message.startswith("Levitate") or message.startswith("104"):
             await self.highrise.send_emote("emoji-halo",user.id)
@@ -352,19 +352,16 @@ class Bot(BaseBot):
         if        message.startswith("/hero") or      message.startswith("!hero") or      message.startswith("hero") or   message.startswith("Hero") or message.startswith("103"):
             await self.highrise.send_emote("idle-hero",user.id)
                  
-        if        message.startswith("/Ignition") or      message.startswith("!Ignition") or      message.startswith("Ignition") or  message.startswith("boost") or message.startswith("Boost") or message.startswith("ignition") or message.startswith("102"):
-            await self.highrise.send_emote("hcc-jetpack",user.id)
-                 
         if        message.startswith("/Shrink") or      message.startswith("!Shrink") or      message.startswith("Shrink") or   message.startswith("shrink") or message.startswith("101"):
             await self.highrise.send_emote("emote-shrink",user.id)
                  
-        if        message.startswith("/LaidBack") or      message.startswith("!LaidBack") or      message.startswith("Laid") or  message.startswith("laidBack") or message.startswith("sitback") or  message.startswith("LaidBack") or message.startswith("100"):
+        if        message.startswith("/laidBack") or      message.startswith("!laidBack") or      message.startswith("Laid") or  message.startswith("laidBack") or message.startswith("sitback") or  message.startswith("LaidBack") or message.startswith("100"):
             await self.highrise.send_emote("sit-open",user.id)
                  
         if        message.startswith("/relaxing") or      message.startswith("!relaxing") or      message.startswith("Relaxing") or   message.startswith("relaxing") or message.startswith("98"):
             await self.highrise.send_emote("idle-floorsleeping2",user.id)
                  
-        if        message.startswith("/cozyNap") or      message.startswith("!cozyNap") or      message.startswith("CozyNap") or   message.startswith("cozyNap") or message.startswith("nap") or message.startswith("99"):
+        if        message.startswith("/cozyNap") or      message.startswith("!cozyNap") or      message.startswith("CozyNap") or   message.startswith("cozyNap") or message.startswith("Cozy") or message.startswith("cozy") or message.startswith("Nap") or message.startswith("nap") or message.startswith("99"):
             await self.highrise.send_emote("idle-floorsleeping",user.id)
 
         if        message.startswith("!wrong") or   message.startswith("wrong") or      message.startswith("/wrong") or      message.startswith("Wrong") or message.startswith("1"):
