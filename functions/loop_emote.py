@@ -68,16 +68,17 @@ async def loop(self: BaseBot, user: User, message: str) -> None:
                 break
 
     # Check if the message is a loop command
-    valid_prefixes = ["loop ", "Loop ", "!loop ", "-loop "]
+    message_lower = message.lower()
+    valid_prefixes = ["loop ", "!loop ", "-loop "]
     emote_name = None
     for prefix in valid_prefixes:
-        if message.startswith(prefix):
-            emote_name = message[len(prefix):].strip()
+        if message_lower.startswith(prefix):
+            emote_name = message[len(prefix):].strip()  # Strip from original message to preserve casing
             break
 
     if not emote_name:
         return  # Ignore non-loop commands
-
+    print(f"Loop command triggered with emote: {emote_name}")
     # Cancel previous loop if any
     taskgroup = self.highrise.tg
     task_list: list[Task] = list(taskgroup._tasks)
